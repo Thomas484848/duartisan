@@ -1,0 +1,574 @@
+/* ========================================
+   DUARTISAN - Animations Stylesheet
+   Scroll animations & micro-interactions
+   ======================================== */
+
+/* ----------------------------------------
+   Reveal Animations Base States
+   ---------------------------------------- */
+.reveal-fade,
+.reveal-up,
+.reveal-scale {
+    opacity: 0;
+    transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+    will-change: opacity, transform;
+}
+
+.reveal-fade {
+    transform: translateY(0);
+}
+
+.reveal-up {
+    transform: translateY(40px);
+}
+
+.reveal-scale {
+    transform: scale(0.95);
+}
+
+/* Revealed States */
+.reveal-fade.revealed,
+.reveal-up.revealed,
+.reveal-scale.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Delay variations */
+[data-delay="0.05"].revealed { transition-delay: 0.05s; }
+[data-delay="0.1"].revealed { transition-delay: 0.1s; }
+[data-delay="0.15"].revealed { transition-delay: 0.15s; }
+[data-delay="0.2"].revealed { transition-delay: 0.2s; }
+[data-delay="0.25"].revealed { transition-delay: 0.25s; }
+[data-delay="0.3"].revealed { transition-delay: 0.3s; }
+[data-delay="0.35"].revealed { transition-delay: 0.35s; }
+[data-delay="0.4"].revealed { transition-delay: 0.4s; }
+[data-delay="0.5"].revealed { transition-delay: 0.5s; }
+
+/* ----------------------------------------
+   Hero Illustration Animations
+   ---------------------------------------- */
+/* Floating elements */
+.float-element {
+    animation: float 6s ease-in-out infinite;
+}
+
+.float-wrench {
+    animation-delay: 0s;
+}
+
+.float-gear {
+    animation-delay: 1s;
+    animation-name: floatRotate;
+}
+
+.float-brackets {
+    animation-delay: 2s;
+}
+
+.float-cursor {
+    animation-delay: 0.5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes floatRotate {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(15deg);
+    }
+}
+
+/* Circles pulse */
+.ill-circle {
+    animation: circlePulse 4s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.ill-circle-1 { animation-delay: 0s; }
+.ill-circle-2 { animation-delay: 0.5s; }
+.ill-circle-3 { animation-delay: 1s; }
+
+@keyframes circlePulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.15;
+    }
+    50% {
+        transform: scale(1.03);
+        opacity: 0.25;
+    }
+}
+
+/* Code lines typing effect */
+.code-line {
+    animation: codeLine 3s ease-in-out infinite;
+}
+
+.code-line:nth-child(1) { animation-delay: 0s; }
+.code-line:nth-child(2) { animation-delay: 0.2s; }
+.code-line:nth-child(3) { animation-delay: 0.4s; }
+.code-line:nth-child(4) { animation-delay: 0.6s; }
+.code-line:nth-child(5) { animation-delay: 0.8s; }
+.code-line:nth-child(6) { animation-delay: 1s; }
+.code-line:nth-child(7) { animation-delay: 1.2s; }
+
+@keyframes codeLine {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scaleX(1);
+    }
+    30% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scaleX(0.95);
+    }
+}
+
+/* Connection lines drawing */
+.connection-line {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: drawLine 3s ease-in-out infinite;
+}
+
+.connection-line:nth-child(1) { animation-delay: 0s; }
+.connection-line:nth-child(2) { animation-delay: 0.5s; }
+.connection-line:nth-child(3) { animation-delay: 1s; }
+.connection-line:nth-child(4) { animation-delay: 1.5s; }
+
+@keyframes drawLine {
+    0%, 100% {
+        stroke-dashoffset: 100;
+    }
+    40%, 60% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* ----------------------------------------
+   Service Cards Hover Effects
+   ---------------------------------------- */
+.service-card {
+    --hover-scale: 1;
+}
+
+.service-card:hover {
+    --hover-scale: 1.02;
+}
+
+.service-icon svg {
+    transition: transform var(--transition-base);
+}
+
+.service-card:hover .service-icon svg {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* Icon internal animations on hover */
+.service-card:hover .service-icon path[stroke="var(--accent-orange)"] {
+    animation: iconGlow 1s ease-in-out infinite alternate;
+}
+
+@keyframes iconGlow {
+    from {
+        filter: drop-shadow(0 0 0 transparent);
+    }
+    to {
+        filter: drop-shadow(0 0 8px var(--accent-orange));
+    }
+}
+
+/* ----------------------------------------
+   Value Cards Line Drawing
+   ---------------------------------------- */
+.value-icon svg {
+    transition: transform var(--transition-base);
+}
+
+.value-card:hover .value-icon svg {
+    transform: scale(1.1);
+}
+
+.value-icon svg path,
+.value-icon svg circle {
+    transition: all var(--transition-base);
+}
+
+.value-card:hover .value-icon svg path,
+.value-card:hover .value-icon svg circle {
+    stroke: var(--accent-orange);
+}
+
+/* ----------------------------------------
+   Approach Decoration Animation
+   ---------------------------------------- */
+.draw-line {
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    animation: drawPath 4s ease-in-out forwards;
+}
+
+.draw-dot {
+    opacity: 0;
+    animation: dotAppear 0.5s ease forwards;
+}
+
+.draw-dot:nth-child(2) { animation-delay: 0.8s; }
+.draw-dot:nth-child(3) { animation-delay: 1.6s; }
+.draw-dot:nth-child(4) { animation-delay: 2.4s; }
+.draw-dot:nth-child(5) { animation-delay: 3.2s; }
+
+@keyframes drawPath {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes dotAppear {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ----------------------------------------
+   Button Interactions
+   ---------------------------------------- */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:active::after {
+    width: 300%;
+    height: 300%;
+}
+
+/* ----------------------------------------
+   Form Focus Animations
+   ---------------------------------------- */
+.form-input,
+.form-select,
+.form-textarea {
+    position: relative;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    transform: translateY(-2px);
+}
+
+/* ----------------------------------------
+   Link Hover Effects
+   ---------------------------------------- */
+.contact-link {
+    position: relative;
+}
+
+.contact-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent-orange);
+    transform: scaleY(0);
+    transition: transform var(--transition-base);
+    border-radius: 0 3px 3px 0;
+}
+
+.contact-link:hover::before {
+    transform: scaleY(1);
+}
+
+/* ----------------------------------------
+   Skill Tags Hover
+   ---------------------------------------- */
+.skill-tag {
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-blue) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.skill-tag:hover::before {
+    opacity: 0.1;
+}
+
+/* ----------------------------------------
+   Footer Logo Hover
+   ---------------------------------------- */
+.footer .nav-logo:hover .logo-icon {
+    animation: logoWobble 0.5s ease;
+}
+
+@keyframes logoWobble {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+/* ----------------------------------------
+   Stat Counter Animation
+   ---------------------------------------- */
+.stat-number {
+    display: inline-block;
+}
+
+.stat-number.counting {
+    animation: countPulse 0.1s ease-in-out;
+}
+
+@keyframes countPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* ----------------------------------------
+   Loading States
+   ---------------------------------------- */
+.btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn.loading span {
+    opacity: 0;
+}
+
+.btn.loading::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ----------------------------------------
+   Success State
+   ---------------------------------------- */
+.btn.success {
+    background: #28c840;
+}
+
+.btn.success::before {
+    content: '✓';
+    position: static;
+    border: none;
+    animation: none;
+}
+
+/* ----------------------------------------
+   Scroll-based Parallax (subtle)
+   ---------------------------------------- */
+.hero-gradient {
+    transition: transform 0.1s linear;
+}
+
+/* ----------------------------------------
+   Intersection Observer States
+   ---------------------------------------- */
+.approach-decoration {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.approach-decoration.visible {
+    opacity: 0.5;
+}
+
+/* ----------------------------------------
+   Mobile Menu Animation
+   ---------------------------------------- */
+.nav-menu {
+    transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+.nav-menu .nav-item {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+}
+
+.nav-menu.active .nav-item {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.nav-menu.active .nav-item:nth-child(1) { transition-delay: 0.1s; }
+.nav-menu.active .nav-item:nth-child(2) { transition-delay: 0.15s; }
+.nav-menu.active .nav-item:nth-child(3) { transition-delay: 0.2s; }
+.nav-menu.active .nav-item:nth-child(4) { transition-delay: 0.25s; }
+
+/* ----------------------------------------
+   Page Load Animation Sequence
+   ---------------------------------------- */
+.hero-badge,
+.hero-title .title-line,
+.hero-description,
+.hero-buttons {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+body:not(.loading) .hero-badge {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+body:not(.loading) .hero-title .title-line:nth-child(1) {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+body:not(.loading) .hero-title .title-line:nth-child(2) {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+body:not(.loading) .hero-title .title-line:nth-child(3) {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+
+body:not(.loading) .hero-description {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+}
+
+body:not(.loading) .hero-buttons {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+}
+
+body:not(.loading) .hero-visual {
+    animation: fadeInScale 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ----------------------------------------
+   Cursor Trail Effect (optional, via JS)
+   ---------------------------------------- */
+.cursor-trail {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent-orange);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.1s ease;
+    mix-blend-mode: screen;
+}
+
+/* ----------------------------------------
+   Reduced Motion Override
+   ---------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .float-element,
+    .ill-circle,
+    .code-line,
+    .connection-line,
+    .draw-line,
+    .draw-dot,
+    .loader-wrench,
+    .loader-code,
+    .loader-brackets,
+    .loader-progress,
+    .badge-dot,
+    .scroll-dot {
+        animation: none !important;
+    }
+    
+    .reveal-fade,
+    .reveal-up,
+    .reveal-scale {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .hero-badge,
+    .hero-title .title-line,
+    .hero-description,
+    .hero-buttons,
+    .hero-visual {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+}

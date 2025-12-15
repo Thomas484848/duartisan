@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DUARTISAN - L'artisan du digital. Création de sites web, applications et solutions informatiques sur mesure.">
+    <meta name="keywords" content="développement web, création site internet, application, solutions informatiques, artisan digital">
+    <title>DUARTISAN — L'artisan du digital</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <svg class="loader-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="loader-wrench" d="M25 50 L40 35 L45 40 L35 50 L45 60 L40 65 L25 50Z M75 50 L60 35 L55 40 L65 50 L55 60 L60 65 L75 50Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                <rect class="loader-code" x="42" y="30" width="16" height="40" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path class="loader-brackets" d="M46 40 L50 45 L46 50 M54 40 L50 45 L54 50" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            </svg>
+            <div class="loader-text">DUARTISAN</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav-logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 20 L15 13 L17 15 L12 20 L17 25 L15 27 L8 20Z" fill="currentColor"/>
+                    <path d="M32 20 L25 13 L23 15 L28 20 L23 25 L25 27 L32 20Z" fill="currentColor"/>
+                    <rect x="17" y="12" width="6" height="16" rx="1" fill="var(--accent-orange)"/>
+                </svg>
+                <span class="logo-text">DUARTISAN</span>
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#approche" class="nav-link">Approche</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">À propos</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link nav-link--cta">Contact</a></li>
+            </ul>
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                <span class="hamburger"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-bg">
+                <div class="hero-grid"></div>
+                <div class="hero-gradient"></div>
+            </div>
+            
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge reveal-fade">
+                        <span class="badge-dot"></span>
+                        Artisan du digital
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-line reveal-up">L'artisan du digital.</span>
+                        <span class="title-line reveal-up" data-delay="0.1">Des solutions web</span>
+                        <span class="title-line title-accent reveal-up" data-delay="0.2">sur mesure.</span>
+                    </h1>
+                    
+                    <p class="hero-description reveal-fade" data-delay="0.3">
+                        Création de sites web, applications et solutions informatiques 
+                        adaptées à chaque projet. Un travail précis, personnalisé, construit avec soin.
+                    </p>
+                    
+                    <div class="hero-buttons reveal-fade" data-delay="0.4">
+                        <a href="#services" class="btn btn-primary">
+                            <span>Voir mes services</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>Me contacter</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual reveal-scale" data-delay="0.2">
+                    <div class="hero-illustration">
+                        <!-- Animated SVG illustration -->
+                        <svg class="illustration-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background circles -->
+                            <circle class="ill-circle ill-circle-1" cx="200" cy="200" r="150" stroke="var(--accent-orange)" stroke-width="1" opacity="0.2"/>
+                            <circle class="ill-circle ill-circle-2" cx="200" cy="200" r="120" stroke="var(--text-muted)" stroke-width="1" opacity="0.1"/>
+                            <circle class="ill-circle ill-circle-3" cx="200" cy="200" r="90" stroke="var(--accent-blue)" stroke-width="1" opacity="0.15"/>
+                            
+                            <!-- Central wrench/code element -->
+                            <g class="ill-center">
+                                <!-- Code window -->
+                                <rect class="ill-window" x="140" y="130" width="120" height="140" rx="8" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="2"/>
+                                <circle cx="155" cy="145" r="4" fill="#ff5f57"/>
+                                <circle cx="170" cy="145" r="4" fill="#febc2e"/>
+                                <circle cx="185" cy="145" r="4" fill="#28c840"/>
+                                
+                                <!-- Code lines -->
+                                <g class="ill-code-lines">
+                                    <rect class="code-line" x="155" y="165" width="40" height="4" rx="2" fill="var(--accent-orange)"/>
+                                    <rect class="code-line" x="155" y="177" width="60" height="4" rx="2" fill="var(--text-muted)" opacity="0.5"/>
+                                    <rect class="code-line" x="165" y="189" width="50" height="4" rx="2" fill="var(--accent-blue)"/>
+                                    <rect class="code-line" x="165" y="201" width="35" height="4" rx="2" fill="var(--text-muted)" opacity="0.5"/>
+                                    <rect class="code-line" x="155" y="213" width="55" height="4" rx="2" fill="var(--accent-orange)" opacity="0.7"/>
+                                    <rect class="code-line" x="155" y="225" width="25" height="4" rx="2" fill="var(--text-muted)" opacity="0.5"/>
+                                    <rect class="code-line" x="155" y="237" width="45" height="4" rx="2" fill="var(--accent-blue)" opacity="0.7"/>
+                                </g>
+                            </g>
+                            
+                            <!-- Floating elements -->
+                            <g class="ill-floating">
+                                <!-- Wrench -->
+                                <g class="float-element float-wrench" transform="translate(80, 100)">
+                                    <path d="M10 25 L25 10 L35 10 L35 20 L20 35 L10 25Z" fill="var(--accent-orange)" opacity="0.9"/>
+                                    <path d="M15 30 L30 45" stroke="var(--accent-orange)" stroke-width="6" stroke-linecap="round"/>
+                                </g>
+                                
+                                <!-- Gear -->
+                                <g class="float-element float-gear" transform="translate(290, 80)">
+                                    <circle cx="25" cy="25" r="15" fill="none" stroke="var(--accent-blue)" stroke-width="3"/>
+                                    <circle cx="25" cy="25" r="6" fill="var(--accent-blue)"/>
+                                    <g stroke="var(--accent-blue)" stroke-width="3">
+                                        <line x1="25" y1="5" x2="25" y2="12"/>
+                                        <line x1="25" y1="38" x2="25" y2="45"/>
+                                        <line x1="5" y1="25" x2="12" y2="25"/>
+                                        <line x1="38" y1="25" x2="45" y2="25"/>
+                                    </g>
+                                </g>
+                                
+                                <!-- Brackets -->
+                                <g class="float-element float-brackets" transform="translate(300, 250)">
+                                    <text x="0" y="30" font-size="40" font-family="monospace" fill="var(--accent-orange)" opacity="0.8">&lt;/&gt;</text>
+                                </g>
+                                
+                                <!-- Cursor -->
+                                <g class="float-element float-cursor" transform="translate(60, 280)">
+                                    <path d="M10 10 L10 45 L20 35 L35 35 L10 10Z" fill="var(--text-primary)" opacity="0.8"/>
+                                </g>
+                            </g>
+                            
+                            <!-- Connection lines -->
+                            <g class="ill-connections" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="4 4">
+                                <line class="connection-line" x1="110" y1="130" x2="140" y2="150"/>
+                                <line class="connection-line" x1="315" y1="115" x2="260" y2="145"/>
+                                <line class="connection-line" x1="300" y1="270" x2="260" y2="250"/>
+                                <line class="connection-line" x1="95" y1="295" x2="140" y2="260"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-scroll">
+                <a href="#services" class="scroll-indicator">
+                    <span class="scroll-text">Défiler</span>
+                    <div class="scroll-line">
+                        <div class="scroll-dot"></div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services section" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag reveal-fade">Services</span>
+                    <h2 class="section-title reveal-up">
+                        Des solutions adaptées<br>
+                        <span class="text-accent">à chaque besoin</span>
+                    </h2>
+                    <p class="section-description reveal-fade" data-delay="0.1">
+                        Un accompagnement complet, de la conception à la mise en ligne.
+                    </p>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <article class="service-card reveal-up" data-delay="0">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="8" width="40" height="28" rx="4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M4 36h40M20 36v4M28 36v4M16 40h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M16 20l4 4-4 4M24 28h8" stroke="var(--accent-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Création de sites web</h3>
+                        <p class="service-description">
+                            Sites vitrines, e-commerce, landing pages. Design moderne, 
+                            responsive et optimisé pour le référencement.
+                        </p>
+                        <ul class="service-features">
+                            <li>Design sur mesure</li>
+                            <li>Responsive design</li>
+                            <li>Optimisation SEO</li>
+                        </ul>
+                        <div class="service-link">
+                            <span>En savoir plus</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </article>
+                    
+                    <!-- Service 2 -->
+                    <article class="service-card reveal-up" data-delay="0.1">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="12" y="4" width="24" height="40" rx="4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 12h24M12 36h24" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="24" cy="40" r="2" fill="currentColor"/>
+                                <path d="M20 22l4 4-4 4M28 22v8" stroke="var(--accent-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Développement d'applications</h3>
+                        <p class="service-description">
+                            Applications web et mobiles performantes. 
+                            Interfaces intuitives et expérience utilisateur soignée.
+                        </p>
+                        <ul class="service-features">
+                            <li>Applications web</li>
+                            <li>Applications mobiles</li>
+                            <li>Interfaces modernes</li>
+                        </ul>
+                        <div class="service-link">
+                            <span>En savoir plus</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </article>
+                    
+                    <!-- Service 3 -->
+                    <article class="service-card reveal-up" data-delay="0.2">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/>
+                                <path d="M24 6v4M24 38v4M6 24h4M38 24h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="24" cy="24" r="8" stroke="var(--accent-orange)" stroke-width="2"/>
+                                <circle cx="24" cy="24" r="3" fill="var(--accent-orange)"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Solutions informatiques</h3>
+                        <p class="service-description">
+                            Automatisation, intégrations, outils métier personnalisés. 
+                            Des solutions qui s'adaptent à vos processus.
+                        </p>
+                        <ul class="service-features">
+                            <li>Automatisation</li>
+                            <li>Intégrations API</li>
+                            <li>Outils sur mesure</li>
+                        </ul>
+                        <div class="service-link">
+                            <span>En savoir plus</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </article>
+                    
+                    <!-- Service 4 -->
+                    <article class="service-card reveal-up" data-delay="0.3">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 4l18 10v20L24 44 6 34V14L24 4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M24 4v40M6 14l18 10 18-10" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                <circle cx="24" cy="24" r="6" stroke="var(--accent-orange)" stroke-width="2"/>
+                                <path d="M24 18v-2M24 32v-2M18 24h-2M32 24h-2" stroke="var(--accent-orange)" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Accompagnement & conseil</h3>
+                        <p class="service-description">
+                            Audit, stratégie digitale, formation. 
+                            Un partenaire technique à vos côtés pour vos projets.
+                        </p>
+                        <ul class="service-features">
+                            <li>Audit technique</li>
+                            <li>Conseil stratégique</li>
+                            <li>Formation</li>
+                        </ul>
+                        <div class="service-link">
+                            <span>En savoir plus</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approach Section -->
+        <section class="approach section" id="approche">
+            <div class="container">
+                <div class="approach-grid">
+                    <div class="approach-content">
+                        <span class="section-tag reveal-fade">Approche</span>
+                        <h2 class="section-title reveal-up">
+                            Un travail d'artisan<br>
+                            <span class="text-accent">pour le digital</span>
+                        </h2>
+                        <p class="approach-text reveal-fade" data-delay="0.1">
+                            Chaque projet est unique. C'est pourquoi je prends le temps de comprendre 
+                            vos besoins, vos objectifs et votre vision avant de construire quoi que ce soit.
+                        </p>
+                        <p class="approach-text reveal-fade" data-delay="0.15">
+                            Pas de solutions génériques. Pas de templates passe-partout. 
+                            Du travail précis, personnalisé, construit pour durer.
+                        </p>
+                    </div>
+                    
+                    <div class="approach-values">
+                        <div class="value-card reveal-up" data-delay="0">
+                            <div class="value-icon">
+                                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 4L4 10v12l12 6 12-6V10L16 4z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M4 10l12 6 12-6M16 16v12" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="value-content">
+                                <h3 class="value-title">Sur-mesure</h3>
+                                <p class="value-text">
+                                    Chaque solution est conçue spécifiquement pour votre projet, 
+                                    vos besoins et vos utilisateurs.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-card reveal-up" data-delay="0.1">
+                            <div class="value-icon">
+                                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M16 8v8l6 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="value-content">
+                                <h3 class="value-title">Précision</h3>
+                                <p class="value-text">
+                                    Attention aux détails, code propre et optimisé. 
+                                    Chaque ligne compte.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-card reveal-up" data-delay="0.2">
+                            <div class="value-icon">
+                                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M12 16c0-2.21 1.79-4 4-4s4 1.79 4 4-1.79 4-4 4-4-1.79-4-4z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M16 4v4M16 24v4M4 16h4M24 16h4" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="value-content">
+                                <h3 class="value-title">Écoute</h3>
+                                <p class="value-text">
+                                    Communication transparente tout au long du projet. 
+                                    Vos retours guident chaque étape.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="value-card reveal-up" data-delay="0.3">
+                            <div class="value-icon">
+                                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 16l6 6L26 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="value-content">
+                                <h3 class="value-title">Qualité</h3>
+                                <p class="value-text">
+                                    Des solutions robustes, maintenables et évolutives. 
+                                    Construites pour durer.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Decorative elements -->
+            <div class="approach-decoration">
+                <svg class="decoration-lines" viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="draw-line" d="M100 0 L100 100 L150 150 L150 250 L100 300 L100 400" stroke="var(--border-color)" stroke-width="1"/>
+                    <circle class="draw-dot" cx="100" cy="100" r="4" fill="var(--accent-orange)"/>
+                    <circle class="draw-dot" cx="150" cy="150" r="4" fill="var(--accent-blue)"/>
+                    <circle class="draw-dot" cx="150" cy="250" r="4" fill="var(--accent-orange)"/>
+                    <circle class="draw-dot" cx="100" cy="300" r="4" fill="var(--accent-blue)"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-visual reveal-scale">
+                        <div class="about-image-container">
+                            <div class="about-image-bg"></div>
+                            <div class="about-image-frame">
+                                <div class="about-avatar">
+                                    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="120" height="120" rx="12" fill="var(--bg-tertiary)"/>
+                                        <circle cx="60" cy="45" r="20" stroke="var(--accent-orange)" stroke-width="2"/>
+                                        <path d="M30 95c0-16.569 13.431-30 30-30s30 13.431 30 30" stroke="var(--accent-orange)" stroke-width="2"/>
+                                        <path d="M45 42l6 6-6 6M75 42l-6 6 6 6" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="about-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number" data-count="5">0</span>
+                                    <span class="stat-suffix">+</span>
+                                    <span class="stat-label">années d'expérience</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-content">
+                        <span class="section-tag reveal-fade">À propos</span>
+                        <h2 class="section-title reveal-up">
+                            Développeur passionné,<br>
+                            <span class="text-accent">artisan du web</span>
+                        </h2>
+                        <div class="about-text reveal-fade" data-delay="0.1">
+                            <p>
+                                Je suis développeur web et solutions informatiques indépendant. 
+                                Mon approche : allier expertise technique et attention au détail 
+                                pour créer des outils qui fonctionnent vraiment.
+                            </p>
+                            <p>
+                                Pas de jargon inutile, pas de promesses impossibles. 
+                                Juste un travail sérieux, transparent et professionnel.
+                            </p>
+                        </div>
+                        
+                        <div class="about-skills reveal-fade" data-delay="0.2">
+                            <h3 class="skills-title">Technologies</h3>
+                            <div class="skills-grid">
+                                <span class="skill-tag">HTML/CSS</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">PHP</span>
+                                <span class="skill-tag">WordPress</span>
+                                <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <span class="section-tag reveal-fade">Contact</span>
+                        <h2 class="section-title reveal-up">
+                            Un projet en tête ?<br>
+                            <span class="text-accent">Parlons-en.</span>
+                        </h2>
+                        <p class="contact-text reveal-fade" data-delay="0.1">
+                            Décrivez-moi votre projet et je vous réponds sous 24h 
+                            avec une première analyse et un devis adapté.
+                        </p>
+                        
+                        <div class="contact-details reveal-fade" data-delay="0.2">
+                            <a href="mailto:contact@duartisan.fr" class="contact-link">
+                                <div class="contact-link-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                        <path d="M22 6l-10 7L2 6"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-link-content">
+                                    <span class="contact-link-label">Email</span>
+                                    <span class="contact-link-value">contact@duartisan.fr</span>
+                                </div>
+                            </a>
+                            
+                            <a href="tel:+33600000000" class="contact-link">
+                                <div class="contact-link-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-link-content">
+                                    <span class="contact-link-label">Téléphone</span>
+                                    <span class="contact-link-value">06 00 00 00 00</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container reveal-up" data-delay="0.1">
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Nom complet</label>
+                                <input type="text" id="name" name="name" class="form-input" required placeholder="Votre nom">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" name="email" class="form-input" required placeholder="votre@email.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="project" class="form-label">Type de projet</label>
+                                <select id="project" name="project" class="form-select">
+                                    <option value="">Sélectionnez...</option>
+                                    <option value="site">Site web</option>
+                                    <option value="app">Application</option>
+                                    <option value="solution">Solution informatique</option>
+                                    <option value="conseil">Conseil / Accompagnement</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Votre message</label>
+                                <textarea id="message" name="message" class="form-textarea" rows="5" required placeholder="Décrivez votre projet..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <span>Envoyer le message</span>
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 20 L15 13 L17 15 L12 20 L17 25 L15 27 L8 20Z" fill="currentColor"/>
+                            <path d="M32 20 L25 13 L23 15 L28 20 L23 25 L25 27 L32 20Z" fill="currentColor"/>
+                            <rect x="17" y="12" width="6" height="16" rx="1" fill="var(--accent-orange)"/>
+                        </svg>
+                        <span class="logo-text">DUARTISAN</span>
+                    </a>
+                    <p class="footer-tagline">L'artisan du digital</p>
+                </div>
+                
+                <nav class="footer-nav">
+                    <a href="#services">Services</a>
+                    <a href="#approche">Approche</a>
+                    <a href="#about">À propos</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 DUARTISAN. Tous droits réservés.
+                </p>
+                <p class="footer-legal">
+                    <a href="#">Mentions légales</a>
+                    <span class="separator">•</span>
+                    <a href="#">Politique de confidentialité</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
