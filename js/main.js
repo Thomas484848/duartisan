@@ -33,15 +33,15 @@ function init() {
 
 /**
  * Theme Toggle (Light/Dark Mode)
- * Default: Light mode
+ * Default: Dark mode
  */
 function initTheme() {
     const themeToggle = document.getElementById('theme-toggle');
     const sunIcon = themeToggle?.querySelector('.theme-icon--light');
     const moonIcon = themeToggle?.querySelector('.theme-icon--dark');
     
-    // Get saved theme or default to light
-    const savedTheme = localStorage.getItem('duartisan-theme') || 'light';
+    // Get saved theme or default to dark
+    const savedTheme = localStorage.getItem('duartisan-theme') || 'dark';
     
     // Apply saved theme
     if (savedTheme === 'dark') {
