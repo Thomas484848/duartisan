@@ -537,6 +537,65 @@ body:not(.loading) .hero-visual {
 }
 
 /* ----------------------------------------
+   Hero Reassurance Animation
+   ---------------------------------------- */
+body:not(.loading) .hero-reassurance {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.reassurance-item {
+    transition: all var(--transition-base);
+}
+
+.reassurance-item:hover {
+    color: var(--text-primary);
+}
+
+.reassurance-item:hover svg {
+    transform: scale(1.1);
+}
+
+/* ----------------------------------------
+   Value Number Animation
+   ---------------------------------------- */
+.value-number {
+    transition: all var(--transition-base);
+}
+
+.value-card:hover .value-number {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(224, 122, 60, 0.3);
+}
+
+/* ----------------------------------------
+   Guarantee Items Animation
+   ---------------------------------------- */
+.guarantee-item svg {
+    transition: transform var(--transition-base);
+}
+
+.guarantee-item:hover svg {
+    transform: scale(1.15);
+}
+
+/* ----------------------------------------
+   Service Example Animation
+   ---------------------------------------- */
+.service-example {
+    transition: all var(--transition-base);
+}
+
+.service-card:hover .service-example {
+    border-color: var(--accent-orange);
+}
+
+.service-card:hover .example-label {
+    color: var(--accent-orange-light);
+}
+
+/* ----------------------------------------
    Reduced Motion Override
    ---------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
@@ -566,7 +625,8 @@ body:not(.loading) .hero-visual {
     .hero-title .title-line,
     .hero-description,
     .hero-buttons,
-    .hero-visual {
+    .hero-visual,
+    .hero-reassurance {
         opacity: 1 !important;
         transform: none !important;
         animation: none !important;
