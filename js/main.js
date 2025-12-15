@@ -15,6 +15,9 @@ function init() {
     // Show loading state
     document.body.classList.add('loading');
     
+    // Initialize theme first (before other components)
+    initTheme();
+    
     // Initialize components
     initLoader();
     initNavigation();
@@ -26,6 +29,41 @@ function init() {
     setTimeout(() => {
         initAnimations();
     }, 100);
+}
+
+/**
+ * Theme Toggle (Light/Dark Mode)
+ * Default: Light mode
+ */
+function initTheme() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = themeToggle?.querySelector('.theme-icon--light');
+    const moonIcon = themeToggle?.querySelector('.theme-icon--dark');
+    
+    // Get saved theme or default to light
+    const savedTheme = localStorage.getItem('duartisan-theme') || 'light';
+    
+    // Apply saved theme
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+    }
+    
+    // Toggle theme on button click
+    themeToggle?.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        
+        if (isDark) {
+            // Switch to light
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('duartisan-theme', 'light');
+        } else {
+            // Switch to dark
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('duartisan-theme', 'dark');
+        }
+    });
 }
 
 /**
