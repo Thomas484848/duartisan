@@ -336,12 +336,11 @@ function initCounters() {
 
 /**
  * Initialize magnetic buttons (desktop only)
+ * DISABLED - buttons should not move
  */
 function initMagneticButtons() {
-    if (window.matchMedia('(pointer: fine)').matches) {
-        const buttons = document.querySelectorAll('.btn-primary');
-        buttons.forEach(btn => new MagneticButton(btn));
-    }
+    // Magnetic effect disabled - buttons stay static
+    return;
 }
 
 // Export for use in main.js
