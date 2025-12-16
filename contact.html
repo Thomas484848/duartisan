@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -130,16 +133,16 @@
 
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper">
-                    <form class="contact-form" id="contact-form">
+                    <form class="contact-form" id="contactForm">
                         <div class="form-group">
                             <label for="name">Nom complet *</label>
-                            <input type="text" id="name" name="name" required placeholder="Jean Dupont">
+                            <input type="text" id="name" name="from_name" required placeholder="Jean Dupont">
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required placeholder="jean@exemple.fr">
+                                <input type="email" id="email" name="from_email" required placeholder="jean@exemple.fr">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Téléphone</label>
@@ -149,13 +152,13 @@
 
                         <div class="form-group">
                             <label for="service">Type de projet *</label>
-                            <select id="service" name="service" required>
+                            <select id="service" name="project_type" required>
                                 <option value="">Sélectionnez un type de projet</option>
-                                <option value="vitrine">Site vitrine</option>
-                                <option value="ecommerce">E-commerce / Boutique</option>
-                                <option value="webapp">Application web</option>
-                                <option value="refonte">Refonte de site existant</option>
-                                <option value="autre">Autre / Je ne sais pas</option>
+                                <option value="Site vitrine">Site vitrine</option>
+                                <option value="E-commerce / Boutique">E-commerce / Boutique</option>
+                                <option value="Application web">Application web</option>
+                                <option value="Refonte de site existant">Refonte de site existant</option>
+                                <option value="Autre / Je ne sais pas">Autre / Je ne sais pas</option>
                             </select>
                         </div>
 
@@ -163,10 +166,10 @@
                             <label for="budget">Budget estimé</label>
                             <select id="budget" name="budget">
                                 <option value="">Sélectionnez une fourchette</option>
-                                <option value="small">Moins de 1 000€</option>
-                                <option value="medium">1 000€ - 2 500€</option>
-                                <option value="large">2 500€ - 5 000€</option>
-                                <option value="enterprise">Plus de 5 000€</option>
+                                <option value="Moins de 1 000€">Moins de 1 000€</option>
+                                <option value="1 000€ - 2 500€">1 000€ - 2 500€</option>
+                                <option value="2 500€ - 5 000€">2 500€ - 5 000€</option>
+                                <option value="Plus de 5 000€">Plus de 5 000€</option>
                             </select>
                         </div>
 
@@ -192,6 +195,19 @@
 
                         <p class="form-note">* Champs obligatoires. Vos données ne sont jamais partagées.</p>
                     </form>
+                    
+                    <!-- Success Message -->
+                    <div class="form-success" id="formSuccess" style="display: none;">
+                        <div class="success-icon">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <h3>Demande envoyée avec succès !</h3>
+                        <p>Merci pour votre message. Vous allez recevoir un récapitulatif par email.<br>Je vous réponds sous 48h maximum.</p>
+                        <button class="btn btn-secondary" onclick="resetForm()">Envoyer une autre demande</button>
+                    </div>
                 </div>
             </div>
         </div>

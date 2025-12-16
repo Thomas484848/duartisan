@@ -148,8 +148,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // === Form Handling ===
+    // === Form Handling with EmailJS ===
     const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    
+    // Initialize EmailJS (Public Key)
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+    }
     
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
@@ -157,6 +163,26 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = {
+                from_name: formData.get('from_name'),
+                from_email: formData.get('from_email'),
+                phone: formData.get('phone') || 'Non renseigné',
+                project_type: formData.get('project_type'),
+                budget: formData.get('budget') || 'Non renseigné',
+                message: formData.get('message'),
+                to_email: 'duarte.thomas33@gmail.com',
+                date: new Date().toLocaleDateString('fr-FR', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                })
+            };
             
             // Loading state
             submitBtn.disabled = true;
@@ -168,29 +194,71 @@ document.addEventListener('DOMContentLoaded', () => {
                 Envoi en cours...
             `;
             
-            // Simulate form submission (replace with actual API call)
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            // Success state
-            submitBtn.innerHTML = `
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="20,6 9,17 4,12"/>
-                </svg>
-                Message envoyé !
-            `;
-            submitBtn.style.background = '#22c55e';
-            
-            // Reset form
-            contactForm.reset();
-            
-            // Reset button after delay
-            setTimeout(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-                submitBtn.style.background = '';
-            }, 3000);
+            try {
+                // Send email to you (owner)
+                if (typeof emailjs !== 'undefined') {
+                    await emailjs.send('YOUR_SERVICE_ID', 'template_owner', data);
+                    // Send confirmation to client
+                    await emailjs.send('YOUR_SERVICE_ID', 'template_client', data);
+                } else {
+                    // Fallback: Use FormSubmit.co (no setup required)
+                    const response = await fetch('https://formsubmit.co/ajax/duarte.thomas33@gmail.com', {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name: data.from_name,
+                            email: data.from_email,
+                            phone: data.phone,
+                            project: data.project_type,
+                            budget: data.budget,
+                            message: data.message,
+                            _subject: `🚀 Nouvelle demande DUARTISAN - ${data.project_type}`,
+                            _template: 'table',
+                            _autoresponse: `Bonjour ${data.from_name},\n\nMerci pour votre demande ! J'ai bien reçu votre message concernant votre projet "${data.project_type}".\n\nVoici un récapitulatif :\n- Projet : ${data.project_type}\n- Budget : ${data.budget}\n- Message : ${data.message}\n\nJe vous recontacte sous 48h maximum pour discuter de votre projet.\n\nÀ très vite !\n\nThomas DUARTE\nDUARTISAN - L'artisan du digital\ncontact@duartisan.fr`
+                        })
+                    });
+                    
+                    if (!response.ok) throw new Error('Erreur envoi');
+                }
+                
+                // Success - show success message
+                contactForm.style.display = 'none';
+                formSuccess.style.display = 'block';
+                
+            } catch (error) {
+                console.error('Erreur:', error);
+                
+                // Error state
+                submitBtn.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="15" y1="9" x2="9" y2="15"/>
+                        <line x1="9" y1="9" x2="15" y2="15"/>
+                    </svg>
+                    Erreur, réessayez
+                `;
+                submitBtn.style.background = '#ef4444';
+                
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                }, 3000);
+            }
         });
     }
+    
+    // Reset form function (global)
+    window.resetForm = function() {
+        if (contactForm && formSuccess) {
+            contactForm.reset();
+            contactForm.style.display = 'flex';
+            formSuccess.style.display = 'none';
+        }
+    };
 
     // === Intersection Observer for Animations ===
     const observerOptions = {
